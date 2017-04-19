@@ -1,0 +1,88 @@
+html,body{
+	width: 100%;
+	margin: 0;
+	padding: 0;
+}
+body{
+	font-family: "microsoft yahei",arial;
+}
+.tip{
+	width: 200px;
+	text-align: center;
+	float: left;
+}
+
+.main{
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	margin-bottom: 20px;
+	/*display: flex;
+	justify-content: center;
+	align-items: center;*/
+}
+
+.progress-wrapper{
+	*zoom : 1;
+}
+.progress-wrapper:after{
+	content: '';
+	display: block;
+	width: 0;
+	height: 0;
+	font-size: 0;
+	clear: both;
+}
+.part{
+	text-align: center;
+}
+.progress-wrapper{
+	padding: 10px;
+	/*transform: translate(-20%,20%);*/
+	transform: translate(5%,0%);
+}
+.nick{
+	font-size: 16px;
+	height: 20px;
+	line-height: 20px;
+	color: #000;
+	margin-bottom: 10px;
+	/*float: left;*/
+	width: 4em;
+	overflow: hidden;
+	position: relative;
+	text-overflow:ellipsis;
+	white-space: nowrap;
+	display: inline-block;
+	transform: translate(-45%,0%);
+}
+.progress{
+	margin-left: 5em;
+	margin-right: 4em;
+	width: 250px;
+	height: 400px;
+	background: red;
+	position: relative;
+	margin-bottom: 40px;
+}
+.progress .inner{
+	position: absolute;
+	left: 0;
+	top: 0;
+	height: 100%;
+	width: 100%;
+	background: #ddd;
+	/*box-shadow: 0 0 1px rgba(0,0,0,0.6);*/
+}
+.award{
+	width: 500px;
+	margin: 0 auto;
+	text-align: center;
+	display: none;
+}
+.award span{
+	color: red;
+	font-size: 16px;
+	color: red;
+	margin-right: 10px;
+}

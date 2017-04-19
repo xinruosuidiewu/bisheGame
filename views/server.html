@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta name="format-detection" content="telephone=no"/>
+        <meta name="format-detection" content="email=no"/>
+        <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
+        <title>Game</title>
+        <link rel="stylesheet" type="text/css" href="/css/server.css" />
+        <script src="/js/socket.io.js"></script>
+    </head>
+    <body>
+        <div class="tip">
+            <h3>WebSocket Game</h3>
+            <p>请扫描左下方二维码并输入自己的游戏昵称，如果不输入会显示为“匿名”;</p>
+            
+            <div class="qr-code">
+                <!--动态生成网址-->
+                {{{data}}}
+            </div>
+        </div>
+        
+        <div class="main">
+            <!--进度条容器-->
+            <div class="progress-wrapper" id="wrapper">
+                <!-- 
+                <div class="part">
+                    <div class="nick"></div>
+                    <div class="progress">
+                        <div class="inner"></div>
+                    </div>
+                </div>
+                 -->
+            </div>
+        </div>
+        <div class="award" id="award">
+            恭喜你！<span id="nick-name"></span>，你的能量已加满，点击手机上的确定按钮继续接下来的行程吧！
+        </div>
+
+        <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
+
+        <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
+        <script type="text/javascript" src="/js/server.js"></script>
+    </body>
+</html>
