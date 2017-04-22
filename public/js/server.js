@@ -3,8 +3,7 @@
 	var d = document;
 	var wrapper = d.getElementById('wrapper');
 	w.Rock = {
-		//host : 'ws://'+'192.168.0.109',
-		host : 'ws://'+'112.23.83.71',
+		host : 'ws://'+'192.168.1.102',
 		port : 8000,
 		//连接被控制的页面
 		registerRoom : function(rid){
@@ -20,7 +19,8 @@
 				room_id : rid
 			});
 		},
-		//初始化
+		//初始
+		//
 		init : function(){
 			//获取扫描的房间的roomid
 			this.roomID = document.getElementById('room_id').value;
@@ -106,6 +106,13 @@
 				}
 			});
 		}
+
+		// onUsercommnipage : function(){
+		// 	var _this = this;
+		// 	_this.socket.on('usercommnipage',function(obj){
+		// 		document.getElementById('award').style.display = 'none';
+		// 	});
+		// }
 	};
 	//初始化
 	w.Rock.init();

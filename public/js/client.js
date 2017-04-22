@@ -8,8 +8,7 @@
 		timeout : 0
 	});
 	w.Rock = {
-		//host : 'ws://'+'192.168.0.109',
-		host : 'ws://'+'112.23.83.71',
+		host : 'ws://'+'192.168.1.102',
 		port : 8000,
 		//连接被控制的页面
 		login : function(){
@@ -82,6 +81,10 @@
 				if(data.uid == _this.UID){
 					alert('您的能量已加满！点击确定进行接下来的行程');
 					$('.main').hide();
+					_this.socket.emit('commnipage',{
+						room_id : _this.roomID,
+						uid : data.uid
+					});
 				}
 			});
 		}
