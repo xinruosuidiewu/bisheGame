@@ -3,7 +3,7 @@
 	var d = document;
 	var wrapper = d.getElementById('wrapper');
 	w.Rock = {
-		host : 'ws://'+'192.168.1.102',
+		host : 'ws://'+'192.168.1.101',
 		port : 8000,
 		//连接被控制的页面
 		registerRoom : function(rid){
@@ -33,9 +33,9 @@
 			//监听用户加入的消息
 			_this.onUserEnter();
 			//监听用户摇动手机
-			_this.onUserShake();
+			//_this.onUserShake();
 			//监听用户完成比赛
-			_this.onUserShake();
+			//_this.onUserShake();
 		},
 		//用户进入房间的事件
 		onUserEnter : function(){
@@ -43,74 +43,64 @@
 				//获取传递过来的用户id
 				var uid = obj.uid;
 
-				//创建一个part
-				var part = d.createElement('div');
-				part.setAttribute('class','part');
+				//创建一个bootstrap容器
+				var width = d.createElement('div');
+				width.setAttribute('class','col-sm-4');
+				var pan = d.createElement('div');
+				pan.setAttribute('class','panel panel-default');
 
-				//根据客户端传递过来的uid创建对应的进度条
-				var progress = d.createElement('div');
-				progress.setAttribute('id',uid);
-				progress.setAttribute('class','progress');
-
+				//根据客户端传递过来的昵称创建对应的面板
 				var nick = d.createElement('div');
-				nick.setAttribute('class','nick');
-				nick.innerHTML =obj.nick;
+				nick.setAttribute('class','panel-heading');
+				nick.innerHTML = obj.nick;
 
 				var inner = d.createElement('div');
-				inner.setAttribute('class','inner');
-				inner.setAttribute('id','inner-'+uid);
-				inner.setAttribute('data-progress','100');
+				inner.setAttribute('class','panel-body');
+				inner.innerHTML = obj.message;
 
-				progress.appendChild(inner);
-				part.appendChild(nick);
-				part.appendChild(progress);
-				wrapper.appendChild(part);
+				pan.appendChild(nick);
+				pan.appendChild(inner);
+				width.appendChild(pan);
+				wrapper.appendChild(width);
 			});
 		},
 		//用户摇手机
-		onUserShake : function(){
-			var _this = this;
-			_this.socket.on('userShake',function(obj){
-				var uid = obj.uid;
-				
-				if(!uid){
-					return;
-				}
-				//获取当前对象
-				var p_inner = $('#inner-'+uid);
-				//获取当前进度
-				var progress = parseInt(p_inner.data('progress'));
-				//进度递增(底灰色递减)
-				if(progress - 1 < 0){
-					return;
-				}
-				//否则
-				progress--;
-				//保存修改后的值
-				p_inner.data('progress',progress);
-				//设置宽度
-				//p_inner.css('width',progress + '%');
-				p_inner.css('height',progress + '%');
-				
-				//更新完progress以后，进行复查，如果完成则马上触发消息
-				if(progress <= 0){
-					//获取指定用户id的用户名
-					document.getElementById('nick-name').innerHTML = $('#'+uid).prev().text();
-					document.getElementById('award').style.display = 'block';
-					
-					//告诉服务器，完成摇一摇的进度了
-					_this.socket.emit('complete',{
-						room_id : _this.roomID,
-						uid : uid
-					});
-				}
-			});
-		}
-
-		// onUsercommnipage : function(){
+		// onUserShake : function(){
 		// 	var _this = this;
-		// 	_this.socket.on('usercommnipage',function(obj){
-		// 		document.getElementById('award').style.display = 'none';
+		// 	_this.socket.on('userShake',function(obj){
+		// 		var uid = obj.uid;
+				
+		// 		if(!uid){
+		// 			return;
+		// 		}
+		// 		//获取当前对象
+		// 		var p_inner = $('#inner-'+uid);
+		// 		//获取当前进度
+		// 		var progress = parseInt(p_inner.data('progress'));
+		// 		//进度递增(底灰色递减)
+		// 		if(progress - 1 < 0){
+		// 			return;
+		// 		}
+		// 		//否则
+		// 		progress--;
+		// 		//保存修改后的值
+		// 		p_inner.data('progress',progress);
+		// 		//设置宽度
+		// 		//p_inner.css('width',progress + '%');
+		// 		p_inner.css('height',progress + '%');
+				
+		// 		//更新完progress以后，进行复查，如果完成则马上触发消息
+		// 		if(progress <= 0){
+		// 			//获取指定用户id的用户名
+		// 			document.getElementById('nick-name').innerHTML = $('#'+uid).prev().text();
+		// 			document.getElementById('award').style.display = 'block';
+					
+		// 			//告诉服务器，完成摇一摇的进度了
+		// 			_this.socket.emit('complete',{
+		// 				room_id : _this.roomID,
+		// 				uid : uid
+		// 			});
+		// 		}
 		// 	});
 		// }
 	};

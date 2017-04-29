@@ -8,7 +8,7 @@
 		timeout : 0
 	});
 	w.Rock = {
-		host : 'ws://'+'192.168.1.102',
+		host : 'ws://'+'192.168.1.101',
 		port : 8000,
 		//连接被控制的页面
 		login : function(){
