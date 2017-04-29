@@ -47,7 +47,7 @@ app.get('/', function(req, res){
 	qr.make();
 
 	res.render('server',{
-		data : qr.createImgTag(4),
+		data : qr.createImgTag(3),
 		room_id : rid
 	});
 });
@@ -105,7 +105,7 @@ io.on('connection', function(socket){
 			//并创建这样一个用户
 			var u = user.create({
 				Name : rid + index,
-				Nick : obj.nick == '' ? '匿名' : obj.nick
+				Nick : obj.nick == '' ? '匿名'  + index : obj.nick
 			});
 			//用户的socket的名称设置为房间id+序号
 			socket.name = rid + index;

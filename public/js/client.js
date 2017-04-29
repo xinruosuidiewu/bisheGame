@@ -39,7 +39,7 @@
 				//监听服务器返回的消息
 				_this.onLogin();
 				//监听完成比赛事件
-				_this.onUserComplete();
+				//_this.onUserMessage();
 				//隐藏蒙版
 				$('.mask').hide();
 			});

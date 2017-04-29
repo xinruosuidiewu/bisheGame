@@ -7,39 +7,44 @@
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
         <title>Game</title>
         <link rel="stylesheet" type="text/css" href="/css/server.css" />
+        <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
         <script src="/js/socket.io.js"></script>
     </head>
     <body>
-        <div class="tip">
-            <h3>WebSocket Game</h3>
-            <p>请扫描左下方二维码并输入自己的游戏昵称，如果不输入会显示为“匿名”;</p>
-            
-            <div class="qr-code">
-                <!--动态生成网址-->
-                {{{data}}}
+       <div class="container">
+        <div class="col-sm-4 ">
+            <div class="panel panel-warning">
+              <div class="panel-heading ">表白墙</div>
+              <div class="panel-body">
+                <p class="col-sm-5">手机扫描左侧二维码，并输入自己的名字，即可表白母校，快来试试吧！</p>
+                <div class="qr-code pull-right col-sm-7">
+                    <!--动态生成网址-->
+                    {{{data}}}
+                </div>
+              </div>
+            </div>
+        </div>
+       
+        <div class="main">
+            <!--信息容器-->
+            <div class="message-wrapper" id="wrapper">
+               <!--  <div class="col-sm-4 ">
+                    <div class="panel panel-default">
+                      <div class="panel-heading">nick</div>
+                      <div class="panel-body">message</div>
+                    </div>
+                </div> -->
             </div>
         </div>
         
-        <div class="main">
-            <!--进度条容器-->
-            <div class="progress-wrapper" id="wrapper">
-                <!-- 
-                <div class="part">
-                    <div class="nick"></div>
-                    <div class="progress">
-                        <div class="inner"></div>
-                    </div>
-                </div>
-                 -->
-            </div>
-        </div>
-        <div class="award" id="award">
-            恭喜你！<span id="nick-name"></span>，你的能量已加满，点击手机上的确定按钮继续接下来的行程吧！
-        </div>
 
         <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
+    </div>
+
+        
 
         <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="/js/server.js"></script>
+        <script type="text/javascript" src="/js/bootstrap.min.js"></script>
     </body>
 </html>
