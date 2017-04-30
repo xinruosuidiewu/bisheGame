@@ -28,14 +28,7 @@ app.engine('html',hbs.__express);
 
 //路由处理
 app.get('/', function(req, res){
-	/*
-	//创建一个房间
-	var r = room.createRoom({
-		RoomID : createKey()
-	});
-	//添加到房间列表中
-	rooms.push(r);
-	*/
+	
 	var rid = createKey();
 	//定义协议
 	var http = 'http://'

@@ -11,34 +11,95 @@
         <script src="/js/socket.io.js"></script>
     </head>
     <body>
+        <nav class="navbar navbar-inverse" role="navigation"> 
+            <div class="container-fluid"> 
+                <ul class="nav navbar-nav navbar-left"> 
+                    <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li> 
+                </ul>
+                <div class="navbar-header"> 
+                    <a class="navbar-brand" href="#">毕业表白墙</a> 
+                </div> 
+            </div> 
+        </nav>
        <div class="container">
-         <div class="col-sm-4 ">
-             <div class="panel panel-warning">
-               <div class="panel-heading ">表白墙</div>
-               <div class="panel-body">
-                 <p class="col-sm-5">手机扫描左侧二维码，并输入自己的名字，即可表白母校，快来试试吧！</p>
-                 <div class="qr-code pull-right col-sm-7">
-                    <!--动态生成网址-->
-                     {{{data}}}
-                 </div>
-               </div>
-             </div>
-         </div>
-       
-        <div class="main">
-            <!--信息容器-->
-            <div class="message-wrapper" id="wrapper">
-               <!--  <div class="col-sm-4 ">
-                    <div class="panel panel-default">
-                      <div class="panel-heading">nick</div>
-                      <div class="panel-body">message</div>
+           <div class="row waterfall">
+               <div class="pin">
+                     <div class="panel panel-warning">
+                       <div class="panel-heading ">表白墙</div>
+                       <div class="panel-body">
+                         <p class="col-sm-5">手机扫描左侧二维码，并输入自己的名字，即可表白母校，快来试试吧！</p>
+                         <div class="qr-code pull-right col-sm-7">
+                            <!--动态生成网址-->
+                             {{{data}}}
+                         </div>
+                       </div>
+                     </div>
+                </div>
+           
+                <div class="main">
+                <!--信息容器-->
+                    <div class="message-wrapper" id="wrapper">
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">我会一直陪着你，直到你不喜欢我为止</div>
+                        </div>
                     </div>
-                </div> -->
-            </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">Y</div>
+                          <div class="panel-body">想到你来过，莫名的有点想哭。当初那么的喜欢，怎么就放手了呢。至少现在，我希望你幸福。一定要快乐啊兔子</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">Y</div>
+                          <div class="panel-body">把你去过的地方走了一圈。说不出的难过，当初那么那么那么的喜欢你，还以为不会分开。唔…再见了，希望你能开心，至于你到底有没有喜欢过我，这个问题我已经没有必要纠结了。一定，要快乐啊。兔子</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">其实，内心一直是爱你的，只是和你在一起的时候好多话并没有说出来，我是一个不善于表达内心感情的人，希望你能给我一个机会，让我去完成我内心的那些承诺。</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">我好喜欢你，真的好稀罕你</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">我好喜欢你，真的好稀罕你</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">上天没有给我帅气的外表，没有给我幽默的谈吐，也没有给我超人的智慧，更没有给我非凡的才能，但是，上天把你给了我，有了你，我很幸福并知足。</div>
+                        </div>
+                    </div>
+                    <div class="pin">
+                        <div class="panel panel-default">
+                          <div class="panel-heading">管双阳</div>
+                          <div class="panel-body">其实，内心一直是爱你的，只是和你在一起的时候好多话并没有说出来，我是一个不善于表达内心感情的人，希望你能给我一个机会，让我去完成我内心的那些承诺。</div>
+                        </div>
+                    </div>
+                       <!--  <div class="col-sm-4 ">
+                            <div class="panel panel-default">
+                              <div class="panel-heading">nick</div>
+                              <div class="panel-body">message</div>
+                            </div>
+                        </div> -->
+                    </div>
+                </div>
+            
+                <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
+           </div>
+            
         </div>
-        
-        <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
-    </div>
 
         
 

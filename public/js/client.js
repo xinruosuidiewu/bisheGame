@@ -57,19 +57,6 @@
 					return;
 				}
 				_this.UID = data.uid;
-
-				//在建立连接后监听shake事件
-				// shake.start();
-				// w.addEventListener('shake',function(e){
-				// 	 e.preventDefault();
-				// 	 e.stopPropagation();
-				// 	//告诉服务器，用户摇手机了
-				// 	_this.socket.emit('shake',{
-				// 		room_id : _this.roomID,
-				// 		uid : data.uid
-				// 	});
-					
-				// },false);
 			});
 		},
 		//处理完成事件
