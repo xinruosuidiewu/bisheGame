@@ -56,6 +56,7 @@
 
 				var inner = d.createElement('div');
 				inner.setAttribute('class','panel-body');
+				inner.setAttribute('id','msgbox');
 				// inner.innerHTML = obj.message;
 
 				pan.appendChild(nick);
@@ -67,7 +68,8 @@
 		onUserMessage : function(){
 			this.socket.on('userMessage',function(obj){
 				var msg = obj.umessage;
-				alert(msg);
+				var msgBox = document.getElementById('msgbox');
+				msgBox.innerHTML=msg;
 			});
 		}
 		//用户摇手机

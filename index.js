@@ -140,14 +140,21 @@ io.on('connection', function(socket){
 	});
 
 	socket.on('message',function(obj){
+		//获取房间号和用户id
 		var rid = obj.room_id;
-		//找到对应的房间
-		var r = onlineRooms[rid];
-		var _s = socket;
-		_s.emit('userMessage',{
-			unick : obj.nick,
-		 	umessage : obj.message
-		});
+		var uid = obj.uid;
+		
+		//告诉对应的进度条页面操作
+		var s = io.sockets.sockets;
+		for(var i = 0;i<s.length;i++){
+			if(s[i].name == rid){
+				s[i].emit('userMessage',{
+					unick : obj.nick,
+				 	umessage : obj.message
+				});
+			}
+		}
+		
 		console.log(obj.nick+","+obj.message);
 	});
 });
