@@ -130,81 +130,17 @@ io.on('connection', function(socket){
 			}
 		}
 	});
-	//处理shake消息
-	socket.on('shake',function(obj){
-		//获取房间号和用户id
-		var rid = obj.room_id;
-		var uid = obj.uid;
-		
-		//告诉对应的进度条页面操作
-		var s = io.sockets.sockets;
-		for(var i = 0;i < s.length;i++){
-			if(s[i].name == rid){
-				//当用户全部进入房间才摇手机有用
-				// if(onlineRooms[rid].Users.length < onlineRooms[rid].Max){
-				// 	return;
-				// }
-				//找到该用户所在的房间对应的socket
-				s[i].emit('userShake',{
-					uid : uid
-				});
-			}
-		}
-	});
-	//监听比赛完成事件
-	socket.on('complete', function(obj){
 
-		//获取消息来源（房间号）
-		var room_id = obj.room_id;
-		//获取消息内容
-		var uid = obj.uid;
-		//告诉client页面，取消shake事件
-		var s = io.sockets.sockets;
-		for(var i = 0;i < s.length;i++){
-			//根据用户id生成的规则来获取client的socket
-			if(s[i].name.indexOf(room_id) >= 0 && s[i].name.length > room_id.length){
-				//获取用户名
-				var tmp = '';
-				for(var u = 0;u < onlineRooms[room_id].Users.length;u++){
-					if(onlineRooms[room_id].Users[u].Name == uid){
-						tmp = onlineRooms[room_id].Users[u].Nick;
-					}
-				}
-				//找到该用户所在的房间对应的socket
-				console.log(uid + ' ' + tmp);
-				s[i].emit('userComplete',{
-					uid : uid,
-					nick : tmp
-				});
-			}
-		}
+	//监听用户退出
+	socket.on('disconnect',function(){
+		//获取房间号和用户昵称
+		var _s = socket;
+		console.log('有人退出连接');
+		delete _s;
 	});
-	socket.on('commnipage', function(obj){
 
-		//获取消息来源（房间号）
-		var room_id = obj.room_id;
-		//获取消息内容
-		var uid = obj.uid;
-		//告诉client页面，取消shake事件
-		var s = io.sockets.sockets;
-		for(var i = 0;i < s.length;i++){
-			//根据用户id生成的规则来获取client的socket
-			if(s[i].name.indexOf(room_id) >= 0 && s[i].name.length > room_id.length){
-				//获取用户名
-				var tmp = '';
-				for(var u = 0;u < onlineRooms[room_id].Users.length;u++){
-					if(onlineRooms[room_id].Users[u].Name == uid){
-						tmp = onlineRooms[room_id].Users[u].Nick;
-					}
-				}
-				//找到该用户所在的房间对应的socket
-				console.log(uid + ' ' + tmp);
-				s[i].emit('usercommnipage',{
-					uid : uid,
-					nick : tmp
-				});
-			}
-		}
+	socket.on('message',function(obj){
+
 	});
 });
 

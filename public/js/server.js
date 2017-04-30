@@ -56,7 +56,7 @@
 
 				var inner = d.createElement('div');
 				inner.setAttribute('class','panel-body');
-				inner.innerHTML = obj.message;
+				// inner.innerHTML = obj.message;
 
 				pan.appendChild(nick);
 				pan.appendChild(inner);

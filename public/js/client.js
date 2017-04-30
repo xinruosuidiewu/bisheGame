@@ -38,11 +38,13 @@
 				_this.login();
 				//监听服务器返回的消息
 				_this.onLogin();
-				//监听完成比赛事件
-				//_this.onUserMessage();
 				//隐藏蒙版
 				$('.mask').hide();
 			});
+			$('#say').click(function(e){
+				//发送消息
+				_this.onUserMessage();
+			})
 		},
 		//处理服务器发送的login事件
 		onLogin : function(){
@@ -57,36 +59,28 @@
 				_this.UID = data.uid;
 
 				//在建立连接后监听shake事件
-				shake.start();
-				w.addEventListener('shake',function(e){
-					// e.preventDefault();
-					// e.stopPropagation();
-					//告诉服务器，用户摇手机了
-					_this.socket.emit('shake',{
-						room_id : _this.roomID,
-						uid : data.uid
-					});
+				// shake.start();
+				// w.addEventListener('shake',function(e){
+				// 	 e.preventDefault();
+				// 	 e.stopPropagation();
+				// 	//告诉服务器，用户摇手机了
+				// 	_this.socket.emit('shake',{
+				// 		room_id : _this.roomID,
+				// 		uid : data.uid
+				// 	});
 					
-				},false);
+				// },false);
 			});
 		},
 		//处理完成事件
-		onUserComplete : function(){
-			var _this = this;
-			_this.socket.on('userComplete',function(data){
-				//取消shake事件的监听
-				w.removeEventListener('shake',function(e){},false);
-				shake.stop();
-
-				if(data.uid == _this.UID){
-					alert('您的能量已加满！点击确定进行接下来的行程');
-					$('.main').hide();
-					_this.socket.emit('commnipage',{
-						room_id : _this.roomID,
-						uid : data.uid
-					});
-				}
-			});
+		onUserMessage : function(){
+			 var _this = this;
+			 alert( $('.msg').val());
+			// this.socket.emit('Meesage',{
+			// 	room_id : _this.roomID,
+			// 	nick : document.getElementById('user_name').value,
+			//  	message : $('.msg').val();
+			//  });
 		}
 	};
 	//初始化
