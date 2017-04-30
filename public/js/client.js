@@ -43,7 +43,7 @@
 			});
 			$('#say').click(function(e){
 				//发送消息
-				_this.onUserMessage();
+				_this.onMessage();
 			})
 		},
 		//处理服务器发送的login事件
@@ -73,14 +73,14 @@
 			});
 		},
 		//处理完成事件
-		onUserMessage : function(){
+		onMessage : function(){
 			 var _this = this;
 			 alert( $('.msg').val());
-			// this.socket.emit('Meesage',{
-			// 	room_id : _this.roomID,
-			// 	nick : document.getElementById('user_name').value,
-			//  	message : $('.msg').val();
-			//  });
+			 this.socket.emit('message',{
+				room_id : _this.roomID,
+				nick : document.getElementById('user_name').value,
+			 	message : $('.msg').val()
+			 });
 		}
 	};
 	//初始化

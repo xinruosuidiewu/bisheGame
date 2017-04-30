@@ -135,12 +135,20 @@ io.on('connection', function(socket){
 	socket.on('disconnect',function(){
 		//获取房间号和用户昵称
 		var _s = socket;
-		console.log('有人退出连接');
+		//console.log('有人退出连接');
 		delete _s;
 	});
 
 	socket.on('message',function(obj){
-
+		var rid = obj.room_id;
+		//找到对应的房间
+		var r = onlineRooms[rid];
+		var _s = socket;
+		_s.emit('userMessage',{
+			unick : obj.nick,
+		 	umessage : obj.message
+		});
+		console.log(obj.nick+","+obj.message);
 	});
 });
 

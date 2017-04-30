@@ -34,8 +34,8 @@
 			_this.onUserEnter();
 			//监听用户摇动手机
 			//_this.onUserShake();
-			//监听用户完成比赛
-			//_this.onUserShake();
+			//监听用户通信
+			_this.onUserMessage();
 		},
 		//用户进入房间的事件
 		onUserEnter : function(){
@@ -64,6 +64,12 @@
 				wrapper.appendChild(width);
 			});
 		},
+		onUserMessage : function(){
+			this.socket.on('userMessage',function(obj){
+				var msg = obj.umessage;
+				alert(msg);
+			});
+		}
 		//用户摇手机
 		// onUserShake : function(){
 		// 	var _this = this;
