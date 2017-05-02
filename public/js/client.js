@@ -62,9 +62,9 @@
 		//处理完成事件
 		onMessage : function(){
 			 var _this = this;
-			 alert( $('.msg').val());
 			 this.socket.emit('message',{
 				room_id : _this.roomID,
+				// uid : data.uid,
 				nick : document.getElementById('user_name').value,
 			 	message : $('.msg').val()
 			 });

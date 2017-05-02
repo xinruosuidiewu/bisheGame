@@ -135,14 +135,15 @@ io.on('connection', function(socket){
 	socket.on('message',function(obj){
 		//获取房间号和用户id
 		var rid = obj.room_id;
-		var uid = obj.uid;
+		// var uid = obj.uid;
 		
-		//告诉对应的进度条页面操作
+		//告诉对应的用户
 		var s = io.sockets.sockets;
 		for(var i = 0;i<s.length;i++){
 			if(s[i].name == rid){
 				s[i].emit('userMessage',{
 					unick : obj.nick,
+					// uid : uid,
 				 	umessage : obj.message
 				});
 			}

@@ -65,8 +65,16 @@
 				wrapper.insertBefore(width,wrapper.firstChild);
 			});
 		},
+		//用户发送消息
 		onUserMessage : function(){
-			this.socket.on('userMessage',function(obj){
+			var _this = this;
+			_this.socket.on('userMessage',function(obj){
+				// var uid = obj.uid;
+				
+				// if(!uid){
+				// 	return;
+				// }
+				
 				var msg = obj.umessage;
 				var msgBox = document.getElementById('msgbox');
 				msgBox.innerHTML=msg;
