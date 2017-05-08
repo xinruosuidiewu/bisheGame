@@ -33,3 +33,6 @@ body{
 	-webkit-column-break-inside: avoid;
 	break-inside: avoid;
 }
+.panel-heading{
+	font-weight: bold;
+}

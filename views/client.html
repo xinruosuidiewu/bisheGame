@@ -5,25 +5,21 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="format-detection" content="email=no"/>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
-        <title>Game</title>
+        <title>毕业表白留言墙</title>
         <link rel="stylesheet" type="text/css" href="/css/client.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
         <script src="/js/socket.io.js"></script>
     </head>
     <body>
-        <div class="container">
-            <div class="col-sm-12">
-                <textarea class="form-control msg" rows="5" placeholder="请输入你想留下的话"></textarea>
-            </div>
-            <div class="col-sm-12">
-                <button type="button" class="btn btn-primary" id="say">提交</button>
-            </div>
+        <div class="center">
+            <textarea placeholder="请输入你想留下的话" id="msg" class="msg"></textarea>
+            <input type="button" id="say" class="button blue" value="提交">
         </div>
 
         <div class="mask">
             <div class="center">
                 <input type="text" placeholder="输入姓名" id="user_name" class="input-name" />
-                <input class="button blue" type="button" value="进入房间" id="enter">
+                <input class="button blue" type="button" value="进入" id="enter">
             </div>
         </div>
         

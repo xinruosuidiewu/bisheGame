@@ -149,7 +149,7 @@ io.on('connection', function(socket){
 			}
 		}
 		
-		console.log(obj.nick+","+obj.message);
+		console.log(obj.nick+"说："+obj.message);
 	});
 });
 

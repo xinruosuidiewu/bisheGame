@@ -3,7 +3,7 @@
 	var d = document;
 	var wrapper = d.getElementById('wrapper');
 	w.Rock = {
-		host : 'ws://'+'192.168.1.101',
+		host : 'ws://'+'192.168.1.100',
 		port : 8000,
 		//连接被控制的页面
 		registerRoom : function(rid){

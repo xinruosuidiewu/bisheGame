@@ -6,7 +6,7 @@ html,body{
 	height: 100%;
 	/*background: #848484;*/
 }
-.main{
+/*.main{
 	display: block;
 	position: fixed;
 	left: 0;
@@ -14,16 +14,7 @@ html,body{
 	width: 100%;
 	height: 100%;
 	background-color: #848484;
-}
-.shake-img{
-	width: 150px;
-	height: 150px;
-	position: absolute;
-	top: 50%;
-	left: 50%;
-	margin: -75px 0 0 -75px;
-}
-
+}*/
 .button {
 	display: inline-block;
 	outline: none;
@@ -91,6 +82,16 @@ html,body{
 	margin-bottom: 40px;
 	padding: 5px;
 }
+.msg{
+	width: 300px;
+	height: 200px;
+	box-sizing: border-box;
+	-webkit-border-radius: 1em;
+	-moz-border-radius: 1em;
+	border-radius: 1em;
+	margin-bottom: 40px;
+	padding:5px;
+}
 .mask{
 	display: block;
 	position: fixed;
@@ -101,7 +102,7 @@ html,body{
 	background: #fff;
 	z-index: 10;
 }
-.mask .center{
+.center{
 	position: absolute;
 	left: 50%;
 	top: 50%;
