@@ -132,24 +132,23 @@ io.on('connection', function(socket){
 		delete _s;
 	});
 
-	socket.on('message',function(obj){
+	socket.on('start',function(obj){
 		//获取房间号和用户id
 		var rid = obj.room_id;
-		// var uid = obj.uid;
+		var uid = obj.uid;
 		
 		//告诉对应的用户
 		var s = io.sockets.sockets;
 		for(var i = 0;i<s.length;i++){
 			if(s[i].name == rid){
-				s[i].emit('userMessage',{
+				s[i].emit('userStart',{
 					unick : obj.nick,
-					// uid : uid,
-				 	umessage : obj.message
+					uid : uid,
 				});
 			}
 		}
 		
-		console.log(obj.nick+"说："+obj.message);
+		console.log("开始！");
 	});
 });
 

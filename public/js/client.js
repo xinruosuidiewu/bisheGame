@@ -8,7 +8,8 @@
 		timeout : 0
 	});
 	w.Rock = {
-		host : 'ws://'+'192.168.1.100',
+		//host : 'ws://'+'192.168.1.100',
+		host : 'ws://'+'112.23.80.112',
 		port : 8000,
 		//连接被控制的页面
 		login : function(){
@@ -63,9 +64,9 @@
 				//点击进入房间的按钮
 				_this.login();
 			});
-			$('#say').click(function(e){
+			$('#btnStart').click(function(e){
 				//发送消息
-				_this.onMessage();
+				_this.onStart();
 			})
 		},
 		//处理服务器发送的login事件
@@ -82,19 +83,30 @@
 			});
 		},
 		//处理完成事件
-		onMessage : function(){
-			 var _this = this;
-			 if (confirm("是否确认提交")) {
-			 	this.socket.emit('message',{
-					room_id : _this.roomID,
-					// uid : data.uid,
-					nick : document.getElementById('user_name').value,
-				 	message : $('.msg').val()
-				 });
-			 	alert("提交成功，谢谢使用！");
-			 	WeixinJSBridge.call('closeWindow');
-			 }else{ }
-			 
+		onStart : function(){
+			var _this = this;
+			var btnPressDown = new function () { 
+				// this.UP = 38; 
+				// this.RIGHT = 39; 
+				// this.DOWN = 40; 
+				// this.LEFT = 37; 
+				this.UP = 'btnUp';
+				this.DOWN = 'btnDown';
+				this.LEFT = 'btnLeft';
+				this.RIGHT = 'btnRight';
+			}; 
+		 	this.socket.emit('start',{
+				room_id : _this.roomID,
+				// uid : data.uid,
+				nick : document.getElementById('user_name').value,
+			 });
+		 	// alert("发送开始！");
+		 	$('#btnUp').addEventListener('click',function(e){
+		 		// if (this.isDone && $('#btnUp') != btnPressDown.DOWN) { 
+					// 	this.dir = dir; this.isDone = false; 
+					// }
+					alert('UP');
+		 	});
 		}
 	};
 	//初始化

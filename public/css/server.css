@@ -6,7 +6,7 @@ html,body{
 body{
 	font-family: "microsoft yahei",arial;
 }
-.navbar{
+/*.navbar{
 	padding: 0 50px;
 }
 .container {
@@ -35,4 +35,30 @@ body{
 }
 .panel-heading{
 	font-weight: bold;
+}*/
+.tip{
+	float: left;
+	width: 200px;
+}
+#pannel {
+	position: absolute;
+	left: 50%;
+	transform: translate(-50%,0);
+}
+#pannel table { 
+	border-collapse: collapse; 
+	border: 1px solid #808080; 
+} 
+#pannel table td { 
+	width: 10px; 
+	height: 10px; 
+	font-size: 0; 
+	line-height: 0; 
+	overflow: hidden; 
+}
+#pannel table .snake { 
+	background-color: green; 
+} 
+#pannel table .food { 
+	background-color: blue; 
 }

@@ -5,7 +5,7 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="format-detection" content="email=no"/>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
-        <title>毕业表白留言墙</title>
+        <title>双屏互动贪吃蛇</title>
         <link rel="stylesheet" type="text/css" href="/css/server.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
         <script src="/js/socket.io.js"></script>
@@ -17,110 +17,24 @@
                     <li><a href="#"><span class="glyphicon glyphicon-heart"></span></a></li> 
                 </ul>
                 <div class="navbar-header"> 
-                    <a class="navbar-brand" href="#">毕业表白留言墙</a> 
+                    <a class="navbar-brand" href="#">双屏互动贪吃蛇</a> 
                 </div> 
             </div> 
         </nav>
-       <div class="container">
-           <div class="row waterfall">
-               <div class="pin">
-                     <div class="panel panel-warning">
-                       <div class="panel-heading ">说明</div>
-                       <div class="panel-body">
-                         <p class="col-sm-5">微信扫描右侧二维码，并输入自己的名字（真名或昵称都可），即可向你的青春表白，快来试试吧！</p>
-                         <div class="qr-code pull-right col-sm-7">
-                            <!--动态生成网址-->
-                             {{{data}}}
-                         </div>
-                       </div>
-                     </div>
-                </div>
-           
-                <div class="main">
-                <!--信息容器-->
-                    <div class="message-wrapper" id="wrapper">
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">顾漫</div>
-                          <div class="panel-body">我一直很清醒，清醒地看着自己的沉沦。</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">墨寂夜</div>
-                          <div class="panel-body">卢立金： 点一盏清浅孤灯，等一个人。 等他君临天下，傲视众生;梦一场长白飞雪，念一个人。念他蓝衫古刃，独守青铜。 ———— 张美琪</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">丁立梅</div>
-                          <div class="panel-body">我们抬头看天，天空仿佛还是当年的样子，碧蓝碧蓝的，阳光一泻千里。但到底不同了，我们眉梢间，已爬上岁月的皱纹。细雨湿衣看不见，闲花落地听无声。有多少的青春，就这样，悄悄过去了。</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">刘宇晴</div>
-                          <div class="panel-body">我相信这个世界上一定有一个除至亲以外你最爱的人，他会穿越这个世间汹涌的人群，一一地走过他们，怀着一颗用力跳动的心脏，捧着满腔的热河沉甸甸的爱，走向你，抓紧你，他一定会走向你的，你要等。 </div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">林玥儿</div>
-                          <div class="panel-body">把你去过的地方走了一圈。说不出的难过，当初那么那么那么的喜欢你，还以为不会分开。唔…再见了，希望你能开心，至于你到底有没有喜欢过我，这个问题我已经没有必要纠结了。一定，要快乐啊。兔子</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">张爱玲</div>
-                          <div class="panel-body">说好永远的，不止怎么就散了。最后自己想来想去，竟然也搞不清楚当初是什么原因吧彼此分开的。然后，你忽然醒悟，感情原来是这么脆弱的。经得起风雨，却经不起平凡。</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">泰戈尔</div>
-                          <div class="panel-body">眼睛为她下着雨，心却为她打着伞，这就是爱情。
-</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">张爱玲</div>
-                          <div class="panel-body">如果你认识从前的我，也许你会原谅现在的我。</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">林徽因</div>
-                          <div class="panel-body">答案很长，我准备用一生的时间来回答，你准备要听了吗</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">红玫瑰与白玫瑰</div>
-                          <div class="panel-body">也许每一个男子全都有过这样的两个女人，至少两个． 娶了红玫瑰，久而久之，红的变了墙上的一抹蚊子血，白的还是“床前明月光”； 娶了白玫瑰，白的便是衣服上的一粒饭粘子，红的却是心口上的一颗朱砂痣。</div>
-                        </div>
-                    </div>
-                    <div class="pin">
-                        <div class="panel panel-default">
-                          <div class="panel-heading">徐志摩</div>
-                          <div class="panel-body">在一段时间我喜欢一段音乐，听一段音乐我怀念一段时光。坐在一段时光里怀念另一段时光的掌纹。那时听着那歌会是怎样的心情？那时的我们是否相遇？是相遇还是错过？还是，没有结局的邂逅？</div>
-                        </div>
-                    </div>
-                       <!--  <div class="col-sm-4 ">
-                            <div class="panel panel-default">
-                              <div class="panel-heading">nick</div>
-                              <div class="panel-body">message</div>
-                            </div>
-                        </div> -->
-                    </div>
-                </div>
+      
+         <div class="tip">
+            <h3>WebSocket Snake</h3>
+            <p>扫描下方二维码即可进入双屏互动贪吃蛇游戏</p>
             
-                <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
-           </div>
-            
+            <div class="qr-code">
+                <!--动态生成网址-->
+                {{{data}}}
+            </div>
         </div>
+        <div id="pannel" style="margin-bottom: 10px;"></div> 
+      
 
-        
+        <input value='{{{room_id}}}' style="width:0;height:0;visibility: hidden;" id="room_id"/>
 
         <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="/js/server.js"></script>

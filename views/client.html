@@ -5,23 +5,37 @@
         <meta name="format-detection" content="telephone=no"/>
         <meta name="format-detection" content="email=no"/>
         <meta content="width=device-width, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0, user-scalable=0" name="viewport">
-        <title>毕业表白留言墙</title>
+        <title>双屏互动贪吃蛇</title>
         <link rel="stylesheet" type="text/css" href="/css/client.css" />
         <link rel="stylesheet" type="text/css" href="/css/bootstrap.min.css" />
         <script src="/js/socket.io.js"></script>
     </head>
     <body>
         <div class="center">
-            <textarea placeholder="请输入你想留下的话" id="msg" class="msg"></textarea>
-            <input type="button" id="say" class="button blue" value="提交">
+            <input type="button" id="btnUp" class="btn btn-primary" value="上" /> 
+            <input type="button" id="btnDown" class="btn btn-primary" value="下" /> 
+            <input type="button" id="btnLeft" class="btn btn-primary" value="左" /> 
+            <input type="button" id="btnRight" class="btn btn-primary" value="右" /> 
         </div>
-
         <div class="mask">
             <div class="center">
                 <input type="text" placeholder="输入姓名" id="user_name" class="input-name" />
                 <input class="button blue" type="button" value="进入" id="enter">
             </div>
-        </div>
+        </div> 
+
+        <div id="pannel" style="margin-bottom: 10px;"></div> 
+        <select id="selSize" class="form-control"> 
+            <option value="20">20*20</option> 
+            <option value="30">30*30</option> 
+            <option value="40">40*40</option> 
+        </select> 
+        <select id="selSpeed" class="form-control"> 
+            <option value="500">速度-慢</option> 
+            <option value="250" selected="selected">速度-中</option> 
+            <option value="100">速度-快</option> 
+        </select> 
+        <input type="button" id="btnStart" class="btn btn-primary" value="开始" /> 
         
         <script type="text/javascript" src="/js/jquery-2.1.4.min.js"></script>
         <script type="text/javascript" src="/js/shake.js"></script>
