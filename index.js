@@ -135,8 +135,6 @@ io.on('connection', function(socket){
 	socket.on('start',function(obj){
 		//获取房间号和用户id
 		var rid = obj.room_id;
-		// var uid = obj.uid;
-		
 		//告诉对应的用户
 		var s = io.sockets.sockets;
 		for(var i = 0;i<s.length;i++){
@@ -149,23 +147,22 @@ io.on('connection', function(socket){
 		}
 		console.log("开始！");
 	});
+	
 	socket.on('dealEvent',function(obj){
 		//获取房间号和用户id
 		var rid = obj.room_id;
-		// var uid = obj.uid;
-		console.log("anjian！");
-		console.log(obj.dir);
 		//告诉对应的用户
 		var s = io.sockets.sockets;
 		for(var i = 0;i<s.length;i++){
 			if(s[i].name == rid){
 				s[i].emit('userdealEvent',{
-					unick : obj.nick,
-					// uid : uid,
+					//unick : obj.nick,
+					//uid : uid,
 					udir : obj.dir
 				});
 			}
 		}
+		console.log(obj.dir);
 	});
 });
 

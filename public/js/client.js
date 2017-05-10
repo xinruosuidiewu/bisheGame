@@ -14,8 +14,8 @@
 		this.RIGHT = 'btnRight';
 	}; 
 	w.Rock = {
-		//host : 'ws://'+'192.168.1.100',
-		host : 'ws://'+'112.23.225.213',
+		host : 'ws://'+'192.168.1.103',
+		//host : 'ws://'+'112.23.225.213',
 		port : 8000,
 		//连接被控制的页面
 		login : function(){
@@ -73,8 +73,7 @@
 		//处理事件
 		onStart : function(){
 			var _this = this;
-			alert('start');
-		 	this.socket.emit('start',{
+		 	_this.socket.emit('start',{
 				room_id : _this.roomID,
 				//uid : data.uid,
 				nick : document.getElementById('user_name').value,
@@ -83,29 +82,29 @@
 		 	/*处理移动方向*/
 		 	$('#btnUp').click(function(e){
 				//发送消息
-				this.socket.emit('start',{
+				_this.socket.emit('dealEvent',{
 					room_id : _this.roomID,
 					dir : Direction.UP
 				 });
-				alert(Direction.UP);
 			});
+
 			$('#btnDown').click(function(e){
 				//发送消息
-				this.socket.emit('dealEvent',{
+				_this.socket.emit('dealEvent',{
 					room_id : _this.roomID,
 					dir : Direction.DOWN
 				 });
 			});
 			$('#btnLeft').click(function(e){
 				//发送消息
-				this.socket.emit('dealEvent',{
+				_this.socket.emit('dealEvent',{
 					room_id : _this.roomID,
 					dir : Direction.LEFT
 				 });
 			});
 			$('#btnRight').click(function(e){
 				//发送消息
-				this.socket.emit('dealEvent',{
+				_this.socket.emit('dealEvent',{
 					room_id : _this.roomID,
 					dir : Direction.RIGHT
 				 });
