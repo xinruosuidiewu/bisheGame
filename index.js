@@ -135,7 +135,7 @@ io.on('connection', function(socket){
 	socket.on('start',function(obj){
 		//获取房间号和用户id
 		var rid = obj.room_id;
-		var uid = obj.uid;
+		// var uid = obj.uid;
 		
 		//告诉对应的用户
 		var s = io.sockets.sockets;
@@ -143,12 +143,29 @@ io.on('connection', function(socket){
 			if(s[i].name == rid){
 				s[i].emit('userStart',{
 					unick : obj.nick,
-					uid : uid,
+					// uid : uid,
 				});
 			}
 		}
-		
 		console.log("开始！");
+	});
+	socket.on('dealEvent',function(obj){
+		//获取房间号和用户id
+		var rid = obj.room_id;
+		// var uid = obj.uid;
+		console.log("anjian！");
+		console.log(obj.dir);
+		//告诉对应的用户
+		var s = io.sockets.sockets;
+		for(var i = 0;i<s.length;i++){
+			if(s[i].name == rid){
+				s[i].emit('userdealEvent',{
+					unick : obj.nick,
+					// uid : uid,
+					udir : obj.dir
+				});
+			}
+		}
 	});
 });
 

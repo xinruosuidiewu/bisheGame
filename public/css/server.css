@@ -43,7 +43,7 @@ body{
 #pannel {
 	position: absolute;
 	left: 50%;
-	transform: translate(-50%,0);
+	/*transform: translate(-50%,0);*/
 }
 #pannel table { 
 	border-collapse: collapse; 
